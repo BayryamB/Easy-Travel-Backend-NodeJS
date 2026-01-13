@@ -1,0 +1,22 @@
+{
+    "name": "easy-travel-backend-nodejs",
+    "version": "1.0.0",
+    "description": "Backend RESTful API built with Node.js and Express, using MongoDB with Mongoose for data modeling. The API supports full CRUD operations, follows REST principles, and provides a scalable foundation for managing and interacting with application data.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.2.1",
+        "jsonwebtoken": "^9.0.3",
+        "mongoose": "^9.1.3"
+    }
+}

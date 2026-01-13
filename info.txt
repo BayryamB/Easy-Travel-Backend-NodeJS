@@ -1,0 +1,29 @@
+travel-app-backend/
+├── config/
+│   └── db.js                 # MongoDB connection
+├── models/
+│   ├── User.js
+│   ├── Destination.js
+│   ├── Rent.js
+│   └── RentShort.js
+├── routes/
+│   ├── auth.js              # Register, Login
+│   ├── users.js             # User CRUD, watchlist, likes
+│   ├── destinations.js      # Destination CRUD
+│   ├── normalStays.js       # RentShort CRUD
+│   └── longTermStays.js     # Rent CRUD
+├── middleware/
+│   └── auth.js              # JWT verification
+├── controllers/             # (Optional but recommended)
+│   ├── userController.js
+│   ├── destController.js
+│   ├── rentController.js
+│   └── authController.js
+├── .env                     # Environment variables
+├── .gitignore
+├── package.json
+└── server.js                # Main entry point
+
+
+npm run dev    # For development (with auto-reload)
+npm start      # For production
