@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
@@ -13,10 +14,7 @@ const verifyToken = (req, res, next) => {
         }
 
         // Verify token
-        const decoded = jwt.verify(
-            token,
-            process.env.JWT_SECRET || "your_secret_key"
-        );
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         // Attach user info to request
         req.user = decoded;
@@ -43,11 +41,9 @@ const verifyOwnership = (req, res, next) => {
         const tokenUserId = req.user.userId;
 
         if (userId !== tokenUserId) {
-            return res
-                .status(403)
-                .json({
-                    error: "You don't have permission to perform this action.",
-                });
+            return res.status(403).json({
+                error: "You don't have permission to perform this action.",
+            });
         }
 
         next();
