@@ -39,11 +39,9 @@ router.put("/:id", async (req, res) => {
 
         // Don't allow password updates through this endpoint
         if (updateData.password) {
-            return res
-                .status(400)
-                .json({
-                    error: "Cannot update password through this endpoint",
-                });
+            return res.status(400).json({
+                error: "Cannot update password through this endpoint",
+            });
         }
 
         const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
