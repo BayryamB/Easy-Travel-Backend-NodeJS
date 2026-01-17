@@ -1,2 +1,116 @@
 # Easy-Travel-Backend-NodeJS
+
 Backend RESTful API built with Node.js and Express, using MongoDB with Mongoose for data modeling. The API supports full CRUD operations, follows REST principles, and provides a scalable foundation for managing and interacting with application data.
+
+travel-app-backend/
+├── config/
+│ └── db.js # MongoDB connection
+├── models/
+│ ├── User.js
+│ ├── Destination.js
+│ ├── Rent.js
+│ └── RentShort.js
+├── routes/
+│ ├── auth.js # Register, Login
+│ ├── users.js # User CRUD, watchlist, likes
+│ ├── destinations.js # Destination CRUD
+│ ├── normalStays.js # RentShort CRUD
+│ └── longTermStays.js # Rent CRUD
+├── middleware/
+│ └── auth.js # JWT verification
+├── controllers/ # (Optional but recommended)
+│ ├── userController.js
+│ ├── destController.js
+│ ├── rentController.js
+│ └── authController.js
+├── .env # Environment variables
+├── .gitignore
+├── package.json
+└── server.js # Main entry point
+
+npm run dev # For development (with auto-reload)
+npm start # For production
+
+API Endpoints Structure
+
+Authentication:
+POST /api/auth/register
+POST /api/auth/login
+
+Users:
+GET /api/users
+GET /api/users/:id
+PUT /api/users/:id
+DELETE /api/users/:id
+POST /api/users/:id/watchlist
+DELETE /api/users/:id/watchlist/:itemId
+POST /api/users/:id/likes
+DELETE /api/users/:id/likes/:propertyId
+GET /api/users/:id/watchlist
+GET /api/users/:id/likes
+
+Destinations:
+GET /api/destinations
+GET /api/destinations/:id
+POST /api/destinations
+PUT /api/destinations/:id
+DELETE /api/destinations/:id
+POST /api/destinations/:id/like
+DELETE /api/destinations/:id/unlike/:userId
+
+Normal Stays (Short-term):
+GET /api/normal-stays
+GET /api/normal-stays/recent
+GET /api/normal-stays/:id
+POST /api/normal-stays
+PUT /api/normal-stays/:id
+DELETE /api/normal-stays/:id
+POST /api/normal-stays/:id/like
+DELETE /api/normal-stays/:id/unlike/:userId
+
+Long-term Stays:
+GET /api/long-term-stays
+GET /api/long-term-stays/recent
+GET /api/long-term-stays/:id
+POST /api/long-term-stays
+PUT /api/long-term-stays/:id
+DELETE /api/long-term-stays/:id
+POST /api/long-term-stays/:id/like
+DELETE /api/long-term-stays/:id/unlike/:userId
+
+Reviews:
+GET /api/reviews
+GET /api/reviews/property/:propertyId
+GET /api/reviews/user/:userId
+GET /api/reviews/:id
+POST /api/reviews
+PUT /api/reviews/:id
+DELETE /api/reviews/:id
+POST /api/reviews/:id/helpful
+
+Bookings:
+GET /api/bookings
+GET /api/bookings/guest/:guestId
+GET /api/bookings/host/:hostId
+GET /api/bookings/:id
+POST /api/bookings
+PUT /api/bookings/:id
+POST /api/bookings/:id/confirm
+POST /api/bookings/:id/complete
+POST /api/bookings/:id/cancel
+DELETE /api/bookings/:id
+
+Amenities:
+GET /api/amenities
+GET /api/amenities/category/:category
+GET /api/amenities/popular/true
+GET /api/amenities/:id
+POST /api/amenities
+PUT /api/amenities/:id
+DELETE /api/amenities/:id
+POST /api/amenities/:id/popular
+POST /api/amenities/:id/unpopular
+
+Utility:
+GET / (Welcome message)
+GET /health (Health check)
